@@ -77,15 +77,6 @@ class CircularQueue {
   }
 
   isFull() {
-    // const sizeCheck = this.size - 1;
-    // const lengthCheck = this.rear + 1;
-    // if (this.front === 1 && this.rear === sizeCheck) {
-    //   return true;
-    // }
-    // if (this.front === lengthCheck) {
-    //   return true;
-    // }
-    // return false;
     const length = this.rear + 1;
     if (length % this.queueSize == this.front) {
       return true;
