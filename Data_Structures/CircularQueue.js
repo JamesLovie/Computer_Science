@@ -26,18 +26,19 @@ class CircularQueue {
         // circularly increase the REAR index by 1.
         this.rear += 1;
         // add the new element in the position pointed to by REAR.
-        this.circularQueue.splice(this.rear, 0, data);
+        this.circularQueue[this.rear] = data;
       } else {
         if (currentSize >= this.queueSize) {
           // overflow.
-          this.rear = (currentSize % queueSize);
+          this.rear = (currentSize % this.queueSize);
           // add the new element in the position pointed to by REAR.
-          this.circularQueue.splice(this.rear, 0, data);
+          this.circularQueue[this.rear] = data;
+        } else {
+          // circularly increase the REAR index by 1.
+          this.rear += 1;
+          // add the new element in the position pointed to by REAR.
+          this.circularQueue[this.rear] = data;
         }
-        // circularly increase the REAR index by 1.
-        this.rear += 1;
-        // add the new element in the position pointed to by REAR.
-        this.circularQueue.splice(this.rear, 0, data);
       }
     }
   }
@@ -76,7 +77,17 @@ class CircularQueue {
   }
 
   isFull() {
-    if ((this.rear + 1) % this.queueSize == this.front) {
+    // const sizeCheck = this.size - 1;
+    // const lengthCheck = this.rear + 1;
+    // if (this.front === 1 && this.rear === sizeCheck) {
+    //   return true;
+    // }
+    // if (this.front === lengthCheck) {
+    //   return true;
+    // }
+    // return false;
+    const length = this.rear + 1;
+    if (length % this.queueSize == this.front) {
       return true;
     } else {
       return false;
@@ -95,26 +106,4 @@ class CircularQueue {
 exports.CircularQueue = CircularQueue;
 
 let circularQueue = new CircularQueue(5);
-console.log(circularQueue);
-circularQueue.enqueue(1);
-console.log(circularQueue);
-circularQueue.enqueue(2);
-console.log(circularQueue);
-circularQueue.enqueue(3);
-console.log(circularQueue);
-circularQueue.enqueue(4);
-console.log(circularQueue);
-circularQueue.enqueue(5);
-console.log(circularQueue);
-circularQueue.dequeue();
-console.log(circularQueue);
-circularQueue.dequeue();
-console.log(circularQueue);
-circularQueue.dequeue();
-console.log(circularQueue);
-circularQueue.dequeue();
-console.log(circularQueue);
-circularQueue.dequeue();
-console.log(circularQueue);
-circularQueue.dequeue();
 console.log(circularQueue);
