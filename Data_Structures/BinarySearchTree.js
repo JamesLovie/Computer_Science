@@ -47,6 +47,7 @@ class BinarySearchTree {
   }
 
   // Performs inorder traversal of a tree 
+  // NOT WORKING..
   inorder(node) {
     if (node !== null) {
       this.inorder(node.left);

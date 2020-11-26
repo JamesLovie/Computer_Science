@@ -11,10 +11,10 @@ class LinkedList {
     this.size = 0;
   }
 
-  // add(data)
-  add(data) {
+  // addData(data)
+  addData(data) {
     // If the list is empty, then add the data and it will be the HEAD of the LinkedList. HEAD -> Data(1) NEXT -> Null
-    // If the list is not empty, then loop through to the end of the list, add the data at the end of the list. Adjust size.
+    // If the list is not empty, then loop through to the end of the list, add the data at the end of the list.
     // create a new node.
     const node = new Node(data);
 
@@ -167,14 +167,14 @@ class LinkedList {
   }
 }
 
-let linkedList = new LinkedList();
-linkedList.add('James');
-linkedList.add('Paul');
-linkedList.insertAt('Tom', 2);
-linkedList.add('Kelly');
-console.log(linkedList.printList());
-linkedList.removeData('Kelly');
-console.log(linkedList.printList());
-
 exports.Node = Node;
 exports.LinkedList = LinkedList;
+
+let linkedList = new LinkedList();
+linkedList.addData(1);
+linkedList.addData(2);
+linkedList.insertAt(3, 1);
+linkedList.addData(4);
+linkedList.removeData(3);
+console.log(linkedList.printList());
+linkedList.sizeOfList();
