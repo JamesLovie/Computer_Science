@@ -110,18 +110,21 @@ class LinkedList {
     // loop through the LinkedList.
     while (current != null) {
       // compare the data passed into the function with the current element, if matched, then remove and return true.
-      if (current.data == data) {
-        if (prev = null) {
+      if (current.data === data) {
+        if (previous == null) {
           this.head = current.next;
         } else {
           previous.next = current.next;
         }
         // decrement the size to account for removing the new data item.
         this.size--;
+        console.log(data + ' has been removed from the list.');
         return current.data;
       }
-      return -1;
+      previous = current;
+      current = current.next;
     }
+    return -1;
   }
 
   // indexOf(data)
@@ -173,8 +176,7 @@ exports.LinkedList = LinkedList;
 let linkedList = new LinkedList();
 linkedList.addData(1);
 linkedList.addData(2);
-linkedList.insertAt(3, 1);
+linkedList.insertAt(3, 2);
 linkedList.addData(4);
-linkedList.removeData(3);
+linkedList.removeData(4);
 console.log(linkedList.printList());
-linkedList.sizeOfList();
